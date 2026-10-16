@@ -1,0 +1,1564 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Medicus Recovery Pathway</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta name="description" content="Medicus extends hospital care into the patient's home for 14 to 30 days after discharge. Join the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back,call,check_circle,checklist,close,content_copy,delete,description,download,family_restroom,favorite,group,insights,lock,mail,medication,person_add,phone_iphone,play_arrow,rule,schedule,search,shield_person,sms,watch,wifi_off&display=block">
+<style>
+/* Layout: one calm column of flat white cards on the cool grey page; a Day 0–30 ruler threads the hero like the recovery pathway itself. */
+:root {
+  --primary: #1d5fe8;
+  --primary-dark: #1548b8;
+  --primary-light: #e8effe;
+  --background: #f5f7fb;
+  --surface: #ffffff;
+  --surface-alt: #f1f3f8;
+  --border: #e7eaf0;
+  --divider: #edeff3;
+  --text-primary: #16181d;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --text-on-primary: #ffffff;
+  --success: #15a362;
+  --success-bg: #e3f8ed;
+  --success-text: #0f8a50;
+  --warning: #e8a317;
+  --warning-bg: #fcf3d6;
+  --warning-border: #f3d98b;
+  --warning-text: #8a6410;
+  --error: #e5484d;
+  --error-bg: #fde8e8;
+  --error-text: #c81e23;
+  --info: #1d5fe8;
+  --info-bg: #e8effe;
+  --primary-ink: #1d5fe8; /* primary used as small text */
+
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-xxl: 48px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px; --radius-pill: 999px;
+  --button-height: 52px;
+  --maxw: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #0f1115; --surface: #1a1d23; --surface-alt: #22252c; --border: #2e3138; --divider: #2a2d34;
+    --text-primary: #f3f4f6; --text-secondary: #a1a5ad; --text-tertiary: #6e7280;
+    --primary-ink: #8fb0f5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --background: #0f1115; --surface: #1a1d23; --surface-alt: #22252c; --border: #2e3138; --divider: #2a2d34;
+  --text-primary: #f3f4f6; --text-secondary: #a1a5ad; --text-tertiary: #6e7280;
+  --primary-ink: #8fb0f5;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--background); color: var(--text-primary);
+  font-family: var(--font); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--background); }
+
+.wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
+}
+
+.ms { font-family: "Material Symbols Outlined"; font-weight: normal; font-style: normal; font-size: 22px; line-height: 1; display: inline-block; letter-spacing: normal; text-transform: none; white-space: nowrap; direction: ltr; -webkit-font-feature-settings: "liga"; font-feature-settings: "liga"; flex: none; width: 22px; overflow: hidden; }
+
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.display { font-size: clamp(34px, 5.4vw, 56px); line-height: 1.08; font-weight: 700; letter-spacing: -1.2px; }
+.h2 { font-size: clamp(26px, 3.4vw, 34px); line-height: 1.18; font-weight: 700; letter-spacing: -0.5px; }
+.h3 { font-size: 18px; line-height: 1.3; font-weight: 600; }
+.lead { font-size: 18px; line-height: 1.55; color: var(--text-secondary); max-width: 34em; }
+.body-m { font-size: 14px; line-height: 1.45; color: var(--text-secondary); }
+.body-s { font-size: 12px; line-height: 1.4; color: var(--text-secondary); }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.4px; color: var(--text-secondary); text-transform: uppercase; }
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-sm);
+  min-height: var(--button-height); padding: 0 var(--space-lg);
+  border-radius: var(--radius-md); border: 1px solid transparent;
+  font: 600 16px/1.2 var(--font); text-decoration: none; cursor: pointer;
+  transition: background-color .15s ease;
+}
+.btn-primary { background: var(--primary); color: var(--text-on-primary); }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline { background: transparent; color: var(--text-primary); border-color: var(--border); }
+.btn-outline:hover { background: var(--surface-alt); }
+.btn-sm { min-height: 40px; padding: 0 var(--space-md); font-size: 14px; }
+
+/* Badges */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.b-info { background: var(--info-bg); color: var(--info); }
+.b-success { background: var(--success-bg); color: var(--success-text); }
+.b-warning { background: var(--warning-bg); color: var(--warning-text); }
+.b-error { background: var(--error-bg); color: var(--error-text); }
+.b-muted { background: var(--surface-alt); color: var(--text-secondary); }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; text-decoration: none; letter-spacing: -0.3px; }
+.brand-mark { width: 34px; height: 34px; display: block; flex: none; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a.link { font-size: 14px; font-weight: 600; color: var(--text-secondary); text-decoration: none; }
+.nav a.link:hover { color: var(--text-primary); }
+@media (max-width: 760px) { .nav a.link { display: none; } }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 7vw, 88px) var(--space-xl); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+@media (max-width: 880px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.hero-copy { display: flex; flex-direction: column; gap: var(--space-lg); min-width: 0; }
+.pill-note { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: var(--radius-pill); background: var(--surface); border: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.pill-note .badge { padding: 3px 8px; font-size: 12px; }
+.display em { font-style: normal; color: var(--primary); }
+.cta-row { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); align-items: center; }
+.cta-row .btn { flex: 0 1 auto; }
+@media (max-width: 480px) { .cta-row .btn { flex: 1 1 100%; } }
+.trust-row { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); }
+.trust-row span { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-secondary); }
+.trust-row .ms { font-size: 18px; width: 18px; color: var(--primary-ink); }
+
+/* Phone card */
+.phone {
+  justify-self: center; width: min(100%, 340px);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 32px;
+  padding: 14px var(--space-md) var(--space-md);
+}
+.phone-notch { width: 72px; height: 5px; border-radius: 99px; background: var(--border); margin: 0 auto 18px; }
+.phone-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.phone-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.progress { height: 6px; border-radius: 99px; background: var(--primary-light); margin: 10px 0 16px; overflow: hidden; }
+.progress i { display: block; height: 100%; width: 21%; background: var(--primary); border-radius: inherit; }
+.task-list { display: flex; flex-direction: column; gap: 10px; }
+.task { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+.task-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--surface-alt); display: grid; place-items: center; flex: none; }
+.task-text { min-width: 0; flex: 1; }
+.task-text b { display: block; font-size: 14px; font-weight: 600; }
+.task-text small { display: block; font-size: 12px; color: var(--text-secondary); }
+.phone-cta { margin-top: 14px; width: 100%; }
+
+/* Day ruler */
+.ruler { margin-top: clamp(40px, 6vw, 72px); }
+.ruler-track { position: relative; height: 44px; margin-inline: 24px; } /* room for the end labels, which centre on the first and last tick */
+.ruler-line { position: absolute; left: 0; right: 0; top: 10px; height: 2px; background: var(--border); }
+.ruler-done { position: absolute; left: 0; top: 10px; height: 2px; width: 20%; background: var(--primary); }
+.ruler-ticks { position: absolute; inset: 0; display: flex; justify-content: space-between; }
+.tick { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 0; }
+.tick i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--border); margin-top: 6px; }
+.tick.on i { background: var(--primary); border-color: var(--primary); }
+.tick.now i { width: 18px; height: 18px; margin-top: 2px; background: var(--primary); border: 4px solid var(--primary-light); box-sizing: border-box; }
+.tick span { font-size: 12px; color: var(--text-secondary); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tick.now span { color: var(--text-primary); font-weight: 600; }
+@media (max-width: 560px) { .tick.minor { display: none; } }
+.ruler-comet { position: absolute; top: 11px; left: 20%; width: 64px; height: 2px; margin-left: -64px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--primary)); opacity: 0; pointer-events: none; }
+.ruler-comet::after { content: ""; position: absolute; right: -3px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px 2px color-mix(in srgb, var(--primary) 55%, transparent); }
+.tick { cursor: default; }
+.ruler-caption { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-sm); }
+
+/* Sections */
+section.block { padding-block: clamp(56px, 8vw, 96px); }
+.section-head { display: flex; flex-direction: column; gap: var(--space-md); max-width: 680px; margin-bottom: var(--space-xl); }
+
+/* Video */
+.film { padding-block: var(--space-xl) clamp(56px, 8vw, 96px); }
+.film-frame { position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border); background: var(--surface); max-width: 100%; aspect-ratio: 16 / 9; }
+.film-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--surface); }
+.film-play {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-start; padding: clamp(16px, 3vw, 32px);
+  border: 0; background: linear-gradient(to top, rgba(15,17,21,.42), rgba(15,17,21,0) 45%); cursor: pointer; font: inherit; color: #fff; text-align: left;
+}
+.film-play-inner { display: flex; align-items: center; gap: 14px; }
+.film-play .disc { width: 60px; height: 60px; border-radius: 50%; background: var(--primary); display: grid; place-items: center; transition: transform .2s ease; }
+.film-play:hover .disc { transform: scale(1.06); }
+.film-play .disc .ms { font-size: 34px; width: 34px; color: #fff; font-variation-settings: "FILL" 1; }
+.film-play b { display: block; font-size: 18px; font-weight: 700; }
+.film-play small { display: block; font-size: 14px; opacity: .9; }
+.film-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); margin-top: var(--space-md); }
+
+/* Problem */
+.problem-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+@media (max-width: 820px) { .problem-grid { grid-template-columns: minmax(0, 1fr); } }
+.problem { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); }
+.problem .ms { color: var(--error-text); }
+.problem-quote { margin-top: var(--space-xl); font-size: clamp(20px, 2.4vw, 24px); font-weight: 600; line-height: 1.35; letter-spacing: -0.3px; max-width: 30em; }
+.problem-quote span { color: var(--text-secondary); }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 1px solid var(--divider); }
+.step { display: grid; grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg); padding-block: var(--space-lg); border-bottom: 1px solid var(--divider); align-items: start; }
+.step-when { font-size: 14px; font-weight: 600; color: var(--primary-ink); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.step h3 { margin-bottom: 4px; }
+.step-aside { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: flex-end; }
+@media (max-width: 820px) {
+  .step { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .step-aside { justify-content: flex-start; }
+}
+
+/* Channels */
+.channel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+@media (max-width: 820px) { .channel-grid { grid-template-columns: minmax(0, 1fr); } }
+.channel { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); }
+.channel-top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); }
+.icon-tile { width: 44px; height: 44px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: grid; place-items: center; }
+.mini { background: var(--surface-alt); border-radius: var(--radius-md); padding: var(--space-md); display: flex; flex-direction: column; gap: 10px; }
+.scale { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 3px; }
+.scale span { aspect-ratio: 1; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); font-size: 10px; display: grid; place-items: center; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.scale span.sel { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+.yn { display: flex; gap: 6px; }
+.yn span { padding: 6px 14px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; background: var(--surface); border: 1px solid var(--border); }
+.yn span.sel { background: var(--primary); color: #fff; border-color: var(--primary); }
+.sms { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; line-height: 1.55; color: var(--text-primary); white-space: pre-wrap; }
+
+/* Care team */
+.team-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--space-xl); align-items: start; }
+@media (max-width: 880px) { .team-grid { grid-template-columns: minmax(0, 1fr); } }
+.queue { padding: var(--space-lg); }
+.queue-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); margin-bottom: var(--space-md); }
+.qrow { display: flex; align-items: center; gap: 12px; padding-block: 12px; border-top: 1px solid var(--divider); }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-alt); display: grid; place-items: center; font-size: 13px; font-weight: 600; color: var(--text-secondary); flex: none; }
+.qtext { flex: 1; min-width: 0; }
+.qtext b { display: block; font-size: 14px; font-weight: 600; }
+.qtext small { display: block; font-size: 12px; color: var(--text-secondary); }
+.qrow .when { font-size: 12px; color: var(--text-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 480px) { .qrow .when { display: none; } }
+.principles { display: flex; flex-direction: column; gap: var(--space-lg); }
+.principle { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--space-md); }
+.principle .icon-tile { width: 44px; }
+
+/* Targets */
+.targets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+@media (max-width: 820px) { .targets { grid-template-columns: minmax(0, 1fr); } }
+.target { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); }
+.target-num { font-size: 40px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.target-bar { height: 6px; border-radius: 99px; background: var(--primary-light); overflow: hidden; }
+.target-bar i { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
+.footnote { margin-top: var(--space-md); }
+
+/* Audience */
+.aud-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); }
+@media (max-width: 960px) { .aud-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .aud-grid { grid-template-columns: minmax(0, 1fr); } }
+.aud { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); }
+
+/* Waitlist */
+.waitlist { background: var(--surface); border-block: 1px solid var(--border); }
+.wl-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+@media (max-width: 880px) { .wl-grid { grid-template-columns: minmax(0, 1fr); } }
+.wl-copy { display: flex; flex-direction: column; gap: var(--space-lg); }
+.wl-list { display: flex; flex-direction: column; gap: var(--space-md); margin: 0; padding: 0; list-style: none; }
+.wl-list li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; font-size: 15px; }
+.wl-list .ms { color: var(--success); font-variation-settings: "FILL" 1; }
+.form-card { background: var(--background); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: clamp(20px, 3vw, 32px); }
+form { display: flex; flex-direction: column; gap: var(--space-md); }
+.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
+@media (max-width: 560px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.field label .opt { font-weight: 400; }
+.input, select.input, textarea.input {
+  width: 100%; font: 400 15px/1.4 var(--font); color: var(--text-primary);
+  background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  padding: 13px var(--space-md); outline: none; transition: border-color .15s ease;
+  -webkit-appearance: none; appearance: none;
+}
+select.input { background-image: linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%), linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
+textarea.input { resize: vertical; min-height: 84px; }
+.input::placeholder { color: var(--text-tertiary); }
+.input:focus { border-color: var(--primary); }
+.input[aria-invalid="true"] { border-color: var(--error); }
+.field-error { font-size: 12px; color: var(--error-text); }
+.consent { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; font-size: 13px; color: var(--text-secondary); align-items: start; }
+.consent input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--primary); }
+.banner { display: flex; gap: 10px; align-items: flex-start; padding: 12px var(--space-md); border-radius: var(--radius-md); font-size: 14px; }
+.banner .ms { font-size: 20px; width: 20px; }
+.banner-error { background: var(--error-bg); color: var(--error-text); }
+.banner-info { background: var(--info-bg); color: var(--info); }
+.btn-block { width: 100%; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.btn[disabled] { opacity: .65; cursor: progress; }
+.success { display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-start; }
+.success .big { width: 56px; height: 56px; border-radius: 50%; background: var(--success-bg); color: var(--success-text); display: grid; place-items: center; }
+.success .big .ms { font-size: 30px; width: 30px; font-variation-settings: "FILL" 1; }
+.summary { width: 100%; border-top: 1px solid var(--divider); }
+.summary div { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: 10px; border-bottom: 1px solid var(--divider); font-size: 14px; }
+.summary dt { color: var(--text-secondary); }
+.summary dd { margin: 0; font-weight: 600; text-align: right; min-width: 0; overflow-wrap: anywhere; }
+
+/* Waitlist manager (page owner only) */
+.nav-manage .ms { font-size: 18px; width: 18px; }
+@media (max-width: 480px) { .nav { gap: var(--space-sm); } .nav-manage .ms { display: none; } }
+.manager { padding-block: var(--space-xl) var(--space-xxl); min-height: 70vh; }
+.mgr-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-lg); }
+.mgr-title { display: flex; flex-direction: column; gap: var(--space-sm); }
+.back-link { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--text-secondary); text-decoration: none; }
+.back-link:hover { color: var(--text-primary); }
+.back-link .ms { font-size: 18px; width: 18px; }
+.mgr-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.btn .ms { font-size: 20px; width: 20px; }
+.stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-md); }
+@media (max-width: 820px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.stat { text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px var(--space-md); font: inherit; color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 2px; min-width: 0; transition: border-color .15s ease; }
+.stat:hover { border-color: var(--text-tertiary); }
+.stat[aria-pressed="true"] { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+.stat b { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stat span { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat i { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--text-tertiary); }
+.stat i[data-s="contacted"] { background: var(--warning); }
+.stat i[data-s="invited"] { background: var(--primary); }
+.stat i[data-s="onboarded"] { background: var(--success); }
+.stat i[data-s="declined"] { background: var(--error); }
+.stat i[data-s="all"] { background: var(--text-primary); }
+.toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 230px 170px; gap: var(--space-sm); margin-bottom: var(--space-md); }
+@media (max-width: 720px) { .toolbar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .toolbar .search { grid-column: 1 / -1; } }
+.toolbar .input { padding-block: 10px; }
+.search { position: relative; }
+.search .ms { position: absolute; left: 12px; top: 50%; margin-top: -11px; color: var(--text-tertiary); pointer-events: none; }
+.search .input { padding-left: 42px; }
+.bulk { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; padding: 8px 8px 8px var(--space-md); border-radius: var(--radius-md); background: var(--info-bg); color: var(--info); font-size: 14px; font-weight: 600; margin-bottom: var(--space-md); }
+.bulk-count { margin-right: auto; }
+.bulk select.input { width: auto; padding: 8px 40px 8px 12px; font-size: 14px; }
+.bulk .btn { background: var(--surface); }
+.mgr-table td { vertical-align: middle; }
+.mgr-table td:nth-child(2) { min-width: 190px; }
+.mgr-table th:first-child, .mgr-table td:first-child { width: 44px; padding-right: 0; }
+.mgr-table input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: var(--primary); vertical-align: middle; }
+.mgr-table tbody tr:hover { background: var(--surface-alt); }
+.mgr-table tbody tr.is-selected { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); }
+.name-btn { appearance: none; background: none; border: 0; padding: 0; font: 600 14px/1.4 var(--font); color: var(--text-primary); cursor: pointer; text-align: left; }
+.name-btn:hover { color: var(--primary-ink); text-decoration: underline; }
+.cell-sub { display: block; font-size: 12px; color: var(--text-secondary); overflow-wrap: anywhere; }
+select.status-select { width: auto; min-width: 132px; padding: 6px 34px 6px 12px; border-radius: var(--radius-pill); border: 0; font-size: 13px; font-weight: 600; background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; cursor: pointer; }
+select.status-select[data-s="new"] { background-color: var(--surface-alt); color: var(--text-secondary); }
+select.status-select[data-s="contacted"] { background-color: var(--warning-bg); color: var(--warning-text); }
+select.status-select[data-s="invited"] { background-color: var(--info-bg); color: var(--info); }
+select.status-select[data-s="onboarded"] { background-color: var(--success-bg); color: var(--success-text); }
+select.status-select[data-s="declined"] { background-color: var(--error-bg); color: var(--error-text); }
+.mgr-foot { margin-top: var(--space-md); }
+
+.sheet { border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--surface); color: var(--text-primary); padding: 0; width: min(580px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); }
+.sheet[open] { position: fixed; inset: 0; margin: auto; height: fit-content; z-index: 30; box-shadow: 0 24px 64px rgba(15, 17, 21, .28); overflow: auto; } /* centred even where a host opens it non-modally */
+.sheet::backdrop { background: rgba(15, 17, 21, .45); }
+.sheet-body { padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: var(--space-md); }
+.sheet-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-md); }
+.sheet-head a { color: var(--primary-ink); font-size: 14px; overflow-wrap: anywhere; }
+.icon-btn { appearance: none; background: none; border: 0; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; color: var(--text-secondary); cursor: pointer; flex: none; }
+.icon-btn:hover { background: var(--surface-alt); color: var(--text-primary); }
+.quote { font-size: 14px; line-height: 1.5; background: var(--surface-alt); border-radius: var(--radius-md); padding: 12px var(--space-md); white-space: pre-wrap; overflow-wrap: anywhere; }
+.sheet-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap; padding-top: var(--space-sm); }
+.sheet-foot > span { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.btn-danger { background: transparent; color: var(--error-text); border-color: var(--border); }
+.btn-danger:hover { background: var(--error-bg); }
+.btn-danger.armed { background: var(--error); border-color: var(--error); color: #fff; }
+.toast { position: fixed; left: 16px; right: 16px; bottom: max(24px, env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: fit-content; max-width: calc(100vw - 32px); z-index: 20; background: var(--text-primary); color: var(--background); padding: 10px 18px; border-radius: var(--radius-pill); font-size: 14px; font-weight: 600; box-shadow: 0 6px 24px rgba(0, 0, 0, .18); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 12px var(--space-md); border-bottom: 1px solid var(--divider); vertical-align: top; }
+th { font-size: 12px; font-weight: 600; color: var(--text-secondary); letter-spacing: .3px; text-transform: uppercase; background: var(--surface-alt); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
+.empty { padding: var(--space-xl) var(--space-md); text-align: center; color: var(--text-secondary); font-size: 14px; }
+
+/* Footer */
+footer { padding-block: var(--space-xxl); }
+.foot { display: flex; flex-direction: column; gap: var(--space-lg); }
+.boundary { display: flex; gap: 12px; align-items: flex-start; padding: var(--space-md); border-radius: var(--radius-md); background: var(--warning-bg); border: 1px solid var(--warning-border); color: var(--warning-text); font-size: 14px; }
+.boundary .ms { color: var(--warning-text); }
+.foot-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); align-items: center; }
+
+/* Motion: hide the hero until GSAP has applied its starting states, so there is no flash of final layout. */
+.anim-pending .hero .wrap { visibility: hidden; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  root.classList.add("anim-pending");
+  setTimeout(function () { root.classList.remove("anim-pending"); }, 2500);
+})();
+</script>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Medicus home">
+      <img class="brand-mark" src="logo.png" alt="" width="34" height="34">
+      Medicus
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#film">Watch</a>
+      <a class="link" href="#how">How it works</a>
+      <a class="link" href="#care-teams">For care teams</a>
+      <a class="btn btn-outline btn-sm nav-manage" id="nav-manage" href="#manage" hidden><span class="ms" aria-hidden="true">group</span>Manage</a>
+      <a class="btn btn-primary btn-sm" href="#waitlist">Join the Waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="pill-note"><span class="badge b-info">Pilot</span> Post-operative recovery</span>
+          <h1 class="display">Continuous care that <em>follows the patient home.</em></h1>
+          <p class="lead">Medicus turns the discharge plan into a daily recovery pathway. Patients check in for a few minutes a day, the care team sees who needs attention first, and every response is recorded.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#waitlist">Join the Waitlist</a>
+            <a class="btn btn-outline" href="#film"><span class="ms" aria-hidden="true">play_arrow</span>Watch the 60-second film</a>
+          </div>
+          <div class="trust-row">
+            <span><span class="ms" aria-hidden="true">wifi_off</span>Works offline</span>
+            <span><span class="ms" aria-hidden="true">sms</span>SMS and USSD fallback</span>
+            <span><span class="ms" aria-hidden="true">shield_person</span>A clinician makes every decision</span>
+          </div>
+        </div>
+
+        <div class="phone" aria-label="Example: the patient's recovery pathway screen">
+          <div class="phone-notch"></div>
+          <div class="phone-head">
+            <span class="phone-title">Your Recovery Pathway</span>
+            <span class="badge b-info">Day 3 of 14</span>
+          </div>
+          <div class="progress" aria-hidden="true"><i></i></div>
+          <div class="task-list">
+            <div class="task">
+              <span class="task-icon"><span class="ms" aria-hidden="true">description</span></span>
+              <span class="task-text"><b>Teach-back done</b><small>At discharge</small></span>
+              <span class="badge b-success">Completed</span>
+            </div>
+            <div class="task">
+              <span class="task-icon"><span class="ms" aria-hidden="true">checklist</span></span>
+              <span class="task-text"><b>Daily check-in</b><small>About 3 minutes</small></span>
+              <span class="badge b-success">Today</span>
+            </div>
+            <div class="task">
+              <span class="task-icon"><span class="ms" aria-hidden="true">medication</span></span>
+              <span class="task-text"><b>Evening antibiotics</b><small>8:00 pm</small></span>
+              <span class="badge b-warning">Pending</span>
+            </div>
+            <div class="task">
+              <span class="task-icon"><span class="ms" aria-hidden="true">schedule</span></span>
+              <span class="task-text"><b>Follow-up visit</b><small>Day 7 · Wound review</small></span>
+              <span class="badge b-info">Upcoming</span>
+            </div>
+          </div>
+          <a class="btn btn-primary phone-cta" href="#how" tabindex="-1" aria-hidden="true">Start Check-in</a>
+        </div>
+      </div>
+
+      <div class="ruler" aria-label="The pathway runs from discharge on day 0 to day 30">
+        <div class="ruler-track">
+          <div class="ruler-line"></div>
+          <div class="ruler-done"></div>
+          <div class="ruler-comet" aria-hidden="true"></div>
+          <div class="ruler-ticks">
+            <div class="tick on"><i></i><span>Day 0</span></div>
+            <div class="tick now"><i></i><span>Day 3</span></div>
+            <div class="tick minor"><i></i><span>Day 7</span></div>
+            <div class="tick"><i></i><span>Day 14</span></div>
+            <div class="tick minor"><i></i><span>Day 21</span></div>
+            <div class="tick"><i></i><span>Day 30</span></div>
+          </div>
+        </div>
+        <div class="ruler-caption">
+          <span class="body-s">Begins before discharge</span>
+          <span class="body-s">14 to 30 days, one step each day</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILM -->
+  <section class="film" id="film">
+    <div class="wrap">
+      <div class="film-frame">
+        <video id="film-video" preload="metadata" playsinline poster="poster.jpg" aria-label="Medicus launch film, 60 seconds">
+          <source src="medicus-launch.mp4" type="video/mp4">
+          <track kind="captions" src="data:text/vtt;base64,V0VCVlRUCgowMDowMC40NTAgLS0+IDAwOjAyLjkzMApUb28gbWFueSBwYXRpZW50cyByZXR1cm5lZCB0byB0aGUgaG9zcGl0YWwsCgowMDowMy4wNTAgLS0+IDAwOjA0LjYzMApub3QgYmVjYXVzZSBjYXJlIGZhaWxlZCwKCjAwOjA2LjAxMCAtLT4gMDA6MDguMzcwCmJ1dCBiZWNhdXNlIGluc3RydWN0aW9ucyB3ZXJlIG1pc3VuZGVyc3Rvb2QsCgowMDowOC41NzAgLS0+IDAwOjA5Ljg5MAptZWRpY2F0aW9ucyB3ZXJlIG1pc3NlZCwKCjAwOjEwLjAzMCAtLT4gMDA6MTEuOTUwCm9yIHdhcm5pbmcgc2lnbnMgd2VudCB1bnNlZW4uCgowMDoxNC40MTAgLS0+IDAwOjE2LjI3MApNZWV0IHRoZSBkYWlseSByZWNvdmVyeSBwYXRod2F5LgoKMDA6MTYuNDcwIC0tPiAwMDoyMS4zNzAKSXQgYmVnaW5zIGJlZm9yZSBkaXNjaGFyZ2UgYW5kIGZvbGxvd3MKZWFjaCBwYXRpZW50IGhvbWUgZm9yIDE0IHRvIDMwIGRheXMuCgowMDoyMi4zNzAgLS0+IDAwOjI2LjAzMApBIHNob3J0IGRhaWx5IGNoZWNrLWluIG9uIHBhaW4sCm1lZGljYXRpb24sIGFuZCB3ZWxsLWJlaW5nLAoKMDA6MjYuMTMwIC0tPiAwMDoyOS44OTAKZnJvbSBhbnkgc21hcnRwaG9uZSwgYmFzaWMgcGhvbmUsCm9yIHdpdGggYSBjYXJlZ2l2ZXIncyBoZWxwLgoKMDA6MzEuMjUwIC0tPiAwMDozNS40MTAKQSB3ZWFyYWJsZSBicmFjZWxldCBxdWlldGx5IHRyYWNrcyBwdWxzZSwKbW92ZW1lbnQsIGFuZCBza2luIHRlbXBlcmF0dXJlLAoKMDA6MzUuNDUwIC0tPiAwMDozOC4xMTAKYW5kIHNob3dzIGhvdyByZWxpYWJsZSB0aGUgZGF0YSBpcy4KCjAwOjQwLjM1MCAtLT4gMDA6NDMuOTUwCkFJIHN1bW1hcml6ZXMgdGhlIHRyZW5kcyBhbmQgZmxhZ3MKd2hvIG5lZWRzIGF0dGVudGlvbiBmaXJzdC4KCjAwOjQ0LjQzMCAtLT4gMDA6NDYuODUwCkEgaHVtYW4gYWx3YXlzIG1ha2VzIHRoZSBmaW5hbCBkZWNpc2lvbi4KCjAwOjQ3LjI1MCAtLT4gMDA6NDkuNDcwCk51cnNlcyBzdGVwIGluLCByZWNvcmQgdGhlaXIgYWN0aW9ucywKCjAwOjUwLjk1MCAtLT4gMDA6NTEuOTkwCmFuZCBjbG9zZSB0aGUgbG9vcC4KCjAwOjUyLjkzMCAtLT4gMDA6NTQuMDUwClRydXN0d29ydGh5IGRhdGEsCgowMDo1NC4zMTAgLS0+IDAwOjU1LjQ3MAphY2NvdW50YWJsZSByZXNwb25zZSwKCjAwOjU1LjcxMCAtLT4gMDA6NTYuOTEwCnByb3ZlbiBvdXRjb21lcy4KCjAwOjU3LjQwMCAtLT4gMDA6NTkuNTAwCkNvbnRpbnVvdXMgY2FyZSB0aGF0IGZvbGxvd3MgdGhlIHBhdGllbnQgaG9tZS4K" srclang="en" label="English" default>
+        </video>
+        <button class="film-play" id="film-play" type="button" aria-label="Play the Medicus launch film">
+          <span class="film-play-inner">
+            <span class="disc"><span class="ms" aria-hidden="true">play_arrow</span></span>
+            <span><b>See Medicus in 60 seconds</b><small>From discharge to a closed loop</small></span>
+          </span>
+        </button>
+      </div>
+      <div class="film-meta">
+        <span class="body-m">Launch film · 1:00 · English captions</span>
+        <span class="body-m">Concept visuals. Screens may change before release.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The gap after discharge</span>
+        <h2 class="h2">Too many patients return to hospital. Usually not because care failed.</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="card problem">
+          <span class="ms" aria-hidden="true">description</span>
+          <h3 class="h3">Instructions misunderstood</h3>
+          <p class="body-m">A discharge plan explained once, at a busy bedside, is hard to follow alone at home.</p>
+        </div>
+        <div class="card problem">
+          <span class="ms" aria-hidden="true">medication</span>
+          <h3 class="h3">Medications missed</h3>
+          <p class="body-m">A skipped antibiotic dose or a stopped painkiller goes unnoticed until the patient is back on the ward.</p>
+        </div>
+        <div class="card problem">
+          <span class="ms" aria-hidden="true">insights</span>
+          <h3 class="h3">Warning signs unseen</h3>
+          <p class="body-m">Rising pain, fever or a worrying wound often show days earlier. Nobody is looking at the right moment.</p>
+        </div>
+      </div>
+      <p class="problem-quote">Medicus keeps watching after the patient leaves. <span>The care team sees what changes, and acts on it.</span></p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="block" id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2 class="h2">One pathway from the ward to full recovery</h2>
+        <p class="lead">Each step follows the patient's own discharge plan, written and approved by their clinicians.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-when">Before discharge</span>
+          <div><h3 class="h3">Enrol and teach back</h3><p class="body-m">Staff enrol the patient in under 10 minutes, record consent, language and a caregiver, and confirm the patient can explain today's tasks and urgent symptoms.</p></div>
+          <div class="step-aside"><span class="badge b-success">Teach-back done</span></div>
+        </div>
+        <div class="step">
+          <span class="step-when">Every day</span>
+          <div><h3 class="h3">A short daily check-in</h3><p class="body-m">Pain, medicines, wound, appetite and how they feel, in about 3 minutes. Photos of the wound go to a clinician for review.</p></div>
+          <div class="step-aside"><span class="badge b-info">About 3 minutes</span></div>
+        </div>
+        <div class="step">
+          <span class="step-when">Continuously</span>
+          <div><h3 class="h3">Optional monitoring bracelet</h3><p class="body-m">For higher-risk patients, a bracelet tracks pulse, movement and skin-temperature trend, and reports how reliable each reading is. A thermometer confirms a fever.</p></div>
+          <div class="step-aside"><span class="badge b-muted">High-risk kit</span></div>
+        </div>
+        <div class="step">
+          <span class="step-when">Within minutes</span>
+          <div><h3 class="h3">Rules flag, AI prioritises</h3><p class="body-m">Clinician-written rules catch red flags and missed check-ins. AI summarises the trend and puts the patients who need attention first at the top of the list.</p></div>
+          <div class="step-aside"><span class="badge b-error">Urgent</span><span class="badge b-warning">Review</span></div>
+        </div>
+        <div class="step">
+          <span class="step-when">Until closed</span>
+          <div><h3 class="h3">A nurse acts and closes the loop</h3><p class="body-m">Every alert has an owner and a response deadline. The nurse calls, records what was done and the outcome, and escalates when needed.</p></div>
+          <div class="step-aside"><span class="badge b-success">Completed</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Built for every patient</span>
+        <h2 class="h2">Any phone, any signal, with or without help</h2>
+      </div>
+      <div class="channel-grid">
+        <div class="card channel">
+          <div class="channel-top"><span class="icon-tile"><span class="ms" aria-hidden="true">phone_iphone</span></span><span class="badge b-muted"><span class="ms" aria-hidden="true" style="font-size:14px;width:14px">wifi_off</span>Works offline</span></div>
+          <div><h3 class="h3">Smartphone app</h3><p class="body-m">Large buttons, plain words and local languages. Answers save on the phone and send when a signal returns.</p></div>
+          <div class="mini" aria-hidden="true">
+            <span class="body-s"><b style="color:var(--text-primary)">Pain today</b></span>
+            <div class="scale"><span>0</span><span>1</span><span>2</span><span class="sel">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+            <span class="body-s"><b style="color:var(--text-primary)">Did you take your medicine?</b></span>
+            <div class="yn"><span class="sel">Yes</span><span>No</span></div>
+          </div>
+        </div>
+        <div class="card channel">
+          <div class="channel-top"><span class="icon-tile"><span class="ms" aria-hidden="true">sms</span></span><span class="badge b-muted">Basic phones</span></div>
+          <div><h3 class="h3">SMS and USSD</h3><p class="body-m">No smartphone or no data? The same check-in arrives as a text menu, and answers join the same record.</p></div>
+          <div class="mini" aria-hidden="true">
+            <div class="sms">Medicus: Day 3 check-in.
+Pain today, 0 to 10?
+Reply with a number.
+
+&gt; 3</div>
+          </div>
+        </div>
+        <div class="card channel">
+          <div class="channel-top"><span class="icon-tile"><span class="ms" aria-hidden="true">family_restroom</span></span><span class="badge b-muted">With consent</span></div>
+          <div><h3 class="h3">Caregiver mode</h3><p class="body-m">A family member can answer together with the patient, see the next visit, and know who to call.</p></div>
+          <div class="mini" aria-hidden="true">
+            <span class="body-s"><b style="color:var(--text-primary)">Helping a family member</b></span>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="body-s">Next visit · Day 7</span><span class="badge b-info">Upcoming</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE TEAMS -->
+  <section class="block" id="care-teams" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">For care teams</span>
+        <h2 class="h2">One work queue, sorted by who needs you first</h2>
+        <p class="lead">Nurses and doctors see the reason, the evidence and the deadline for each patient, so routine follow-up gets done and urgent cases are not buried.</p>
+      </div>
+      <div class="team-grid">
+        <div class="card queue" aria-label="Example work queue with illustrative patients">
+          <div class="queue-head"><span class="h3">Work queue</span><span class="body-s">Today · 4 open</span></div>
+          <div class="qrow"><span class="avatar">D</span><span class="qtext"><b>Patient D</b><small>Day 3 · Red-flag symptom reported</small></span><span class="when">Respond in 15 min</span><span class="badge b-error">Urgent</span></div>
+          <div class="qrow"><span class="avatar">C</span><span class="qtext"><b>Patient C</b><small>Day 4 · Pain up over two days</small></span><span class="when">Today</span><span class="badge b-warning">Review</span></div>
+          <div class="qrow"><span class="avatar">A</span><span class="qtext"><b>Patient A</b><small>Day 2 · Check-in done</small></span><span class="when">—</span><span class="badge b-success">On track</span></div>
+          <div class="qrow"><span class="avatar">B</span><span class="qtext"><b>Patient B</b><small>Day 5 · Check-in done</small></span><span class="when">—</span><span class="badge b-success">On track</span></div>
+          <p class="body-s" style="margin-top:8px">Illustrative example. Not real patients.</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><span class="icon-tile"><span class="ms" aria-hidden="true">shield_person</span></span><div><h3 class="h3">A human makes every decision</h3><p class="body-m">AI summarises and sorts. It does not diagnose, prescribe or decide in an emergency.</p></div></div>
+          <div class="principle"><span class="icon-tile"><span class="ms" aria-hidden="true">rule</span></span><div><h3 class="h3">Clinical rules come first</h3><p class="body-m">Thresholds written by your clinicians keep working even if the AI service is down.</p></div></div>
+          <div class="principle"><span class="icon-tile"><span class="ms" aria-hidden="true">insights</span></span><div><h3 class="h3">Uncertainty stays visible</h3><p class="body-m">Missing check-ins, poor-quality readings and where each value came from are always shown.</p></div></div>
+          <div class="principle"><span class="icon-tile"><span class="ms" aria-hidden="true">call</span></span><div><h3 class="h3">Every response is recorded</h3><p class="body-m">Calls, messages, escalations and outcomes are logged, so the hospital can show what was done and when.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGETS -->
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What the pilot aims for</span>
+        <h2 class="h2">Measured from the first patient</h2>
+      </div>
+      <div class="targets">
+        <div class="card target">
+          <span class="target-num">70%</span>
+          <div class="target-bar" aria-hidden="true"><i style="width:70%"></i></div>
+          <span class="body-m">of eligible patients activate their recovery pathway</span>
+        </div>
+        <div class="card target">
+          <span class="target-num">75%</span>
+          <div class="target-bar" aria-hidden="true"><i style="width:75%"></i></div>
+          <span class="body-m">of expected daily check-ins completed</span>
+        </div>
+        <div class="card target">
+          <span class="target-num">90%</span>
+          <div class="target-bar" aria-hidden="true"><i style="width:90%"></i></div>
+          <span class="body-m">of red alerts acknowledged within the response target</span>
+        </div>
+      </div>
+      <p class="body-s footnote">Starting targets for the first hospital pilot. Final targets are agreed with each pilot site. These are goals, not results.</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who it's for</span>
+        <h2 class="h2">Built with hospitals, for the people they discharge</h2>
+      </div>
+      <div class="aud-grid">
+        <div class="card aud"><span class="icon-tile"><span class="ms" aria-hidden="true">group</span></span><h3 class="h3">Hospitals and clinics</h3><p class="body-m">Run follow-up for surgical patients without adding phone lists and paper logs.</p></div>
+        <div class="card aud"><span class="icon-tile"><span class="ms" aria-hidden="true">shield_person</span></span><h3 class="h3">Nurses and doctors</h3><p class="body-m">One queue, clear reasons, and a record of every call you make.</p></div>
+        <div class="card aud"><span class="icon-tile"><span class="ms" aria-hidden="true">family_restroom</span></span><h3 class="h3">Patients and families</h3><p class="body-m">Know what to do each day, and know someone is checking in.</p></div>
+        <div class="card aud"><span class="icon-tile"><span class="ms" aria-hidden="true">insights</span></span><h3 class="h3">Insurers and programmes</h3><p class="body-m">See check-in rates, response times and outcomes for each pathway.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="block waitlist" id="waitlist">
+    <div class="wrap">
+      <div class="wl-grid">
+        <div class="wl-copy">
+          <span class="eyebrow">Early access</span>
+          <h2 class="h2">Join the Medicus waitlist</h2>
+          <p class="lead">We are opening Medicus to a small number of hospitals, clinics and care teams first. Join the list to hear when places open and to help shape the first pathways.</p>
+          <ul class="wl-list">
+            <li><span class="ms" aria-hidden="true">check_circle</span><span>Updates on the pilot and release dates</span></li>
+            <li><span class="ms" aria-hidden="true">check_circle</span><span>First invitations to pilot sites and demos</span></li>
+            <li><span class="ms" aria-hidden="true">check_circle</span><span>A say in which recovery pathways come next</span></li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form id="wl-form" novalidate>
+            <div class="row2">
+              <div class="field">
+                <label for="wl-name">Full name</label>
+                <input class="input" id="wl-name" name="name" autocomplete="name" placeholder="Sarah Nakato" required maxlength="120">
+              </div>
+              <div class="field">
+                <label for="wl-email">Work email</label>
+                <input class="input" id="wl-email" name="email" type="email" autocomplete="email" placeholder="sarah@hospital.ug" required maxlength="200">
+              </div>
+            </div>
+            <div class="row2">
+              <div class="field">
+                <label for="wl-role">I am a</label>
+                <select class="input" id="wl-role" name="role" required>
+                  <option value="" selected disabled>Choose one</option>
+                  <option>Hospital or clinic leader</option>
+                  <option>Nurse or care coordinator</option>
+                  <option>Doctor or clinical officer</option>
+                  <option>Insurer or health programme</option>
+                  <option>Patient or caregiver</option>
+                  <option>Investor or partner</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="wl-country">Country</label>
+                <input class="input" id="wl-country" name="country" autocomplete="country-name" placeholder="Your country" maxlength="80">
+              </div>
+            </div>
+            <div class="field">
+              <label for="wl-org">Organisation <span class="opt">(optional)</span></label>
+              <input class="input" id="wl-org" name="organization" autocomplete="organization" placeholder="Hospital, clinic or company" maxlength="160">
+            </div>
+            <div class="field">
+              <label for="wl-note">What would you like Medicus to help with? <span class="opt">(optional)</span></label>
+              <textarea class="input" id="wl-note" name="note" maxlength="1000" placeholder="For example: follow-up after caesarean sections at our maternity ward"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true"><label for="wl-website">Leave this empty</label><input id="wl-website" name="website" tabindex="-1" autocomplete="off"></div>
+            <label class="consent" for="wl-consent">
+              <input type="checkbox" id="wl-consent" name="consent" required>
+              <span>I agree that the Medicus team may contact me about the pilot and release. You can ask to be removed at any time.</span>
+            </label>
+            <div class="banner banner-error" id="wl-error" role="alert" hidden><span class="ms" aria-hidden="true">lock</span><span id="wl-error-text"></span></div>
+            <button class="btn btn-primary btn-block" id="wl-submit" type="submit">Join the Waitlist</button>
+          </form>
+
+          <div class="success" id="wl-success" hidden aria-live="polite">
+            <span class="big"><span class="ms" aria-hidden="true">check_circle</span></span>
+            <h3 class="h2" style="font-size:24px">You're on the list</h3>
+            <p class="body-m">Thank you. We'll email you when pilot places and demos open.</p>
+            <dl class="summary" id="wl-summary"></dl>
+            <button class="btn btn-outline btn-sm" id="wl-edit" type="button">Update my details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- WAITLIST MANAGER (page owner only) -->
+<section class="manager" id="manager" hidden aria-labelledby="mgr-title">
+  <div class="wrap">
+    <div class="mgr-head">
+      <div class="mgr-title">
+        <a class="back-link" href="#top"><span class="ms" aria-hidden="true">arrow_back</span>Back to site</a>
+        <h1 class="h2" id="mgr-title">Waitlist</h1>
+        <p class="body-m">Only you can see this list. Statuses and notes are never shown to the people who signed up, or to anyone you share this page with.</p>
+      </div>
+      <div class="mgr-actions">
+        <button class="btn btn-outline btn-sm" id="mgr-export" type="button" hidden><span class="ms" aria-hidden="true">download</span>Export CSV</button>
+        <button class="btn btn-primary btn-sm" id="mgr-add" type="button"><span class="ms" aria-hidden="true">person_add</span>Add person</button>
+      </div>
+    </div>
+
+    <div class="stats" id="mgr-stats" role="group" aria-label="Filter by status"></div>
+
+    <div class="toolbar">
+      <label class="search"><span class="ms" aria-hidden="true">search</span><input class="input" type="search" id="mgr-q" placeholder="Search name, email, organisation or message" aria-label="Search the waitlist"></label>
+      <select class="input" id="mgr-role" aria-label="Filter by role"><option value="">All roles</option></select>
+      <select class="input" id="mgr-sort" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="name">Name A to Z</option>
+      </select>
+    </div>
+
+    <div class="bulk" id="mgr-bulk" hidden>
+      <span class="bulk-count" id="mgr-bulk-count"></span>
+      <select class="input" id="mgr-bulk-status" aria-label="Set status for selected people"><option value="">Set status…</option></select>
+      <button class="btn btn-outline btn-sm" id="mgr-bulk-clear" type="button">Clear</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="mgr-table">
+        <thead><tr><th><input type="checkbox" id="mgr-all" aria-label="Select all shown"></th><th>Name</th><th>Role</th><th>Organisation</th><th>Joined</th><th>Status</th></tr></thead>
+        <tbody id="mgr-rows"><tr><td colspan="6" class="empty">Loading the waitlist…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="body-s mgr-foot" id="mgr-foot"></p>
+  </div>
+</section>
+
+<dialog class="sheet" id="det" aria-labelledby="det-name">
+  <div class="sheet-body">
+    <div class="sheet-head">
+      <div>
+        <h2 class="h3" id="det-name"></h2>
+        <a id="det-email"></a>
+      </div>
+      <button class="icon-btn" type="button" data-close aria-label="Close"><span class="ms" aria-hidden="true">close</span></button>
+    </div>
+    <dl class="summary" id="det-fields"></dl>
+    <div class="field" id="det-msg-wrap">
+      <label>Their message</label>
+      <p class="quote" id="det-msg"></p>
+    </div>
+    <div class="field">
+      <label for="det-status">Status</label>
+      <select class="input" id="det-status"></select>
+    </div>
+    <div class="field">
+      <label for="det-notes">Team notes <span class="opt">(only you)</span></label>
+      <textarea class="input" id="det-notes" maxlength="4000" placeholder="Calls, demos booked, follow-ups"></textarea>
+    </div>
+    <div class="sheet-foot">
+      <button class="btn btn-danger btn-sm" id="det-delete" type="button"><span class="ms" aria-hidden="true">delete</span>Remove</button>
+      <span>
+        <button class="btn btn-outline btn-sm" id="det-copy" type="button"><span class="ms" aria-hidden="true">content_copy</span>Copy email</button>
+        <button class="btn btn-primary btn-sm" id="det-save" type="button">Save</button>
+      </span>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="add" aria-labelledby="add-title">
+  <form class="sheet-body" id="add-form" novalidate>
+    <div class="sheet-head">
+      <div>
+        <h2 class="h3" id="add-title">Add someone to the waitlist</h2>
+        <p class="body-s">For people who got in touch another way, such as at an event or by phone.</p>
+      </div>
+      <button class="icon-btn" type="button" data-close aria-label="Close"><span class="ms" aria-hidden="true">close</span></button>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="add-name">Full name</label><input class="input" id="add-name" name="name" required maxlength="120"></div>
+      <div class="field"><label for="add-email">Email</label><input class="input" id="add-email" name="email" type="email" required maxlength="200"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="add-role">Role</label><select class="input" id="add-role" name="role" required></select></div>
+      <div class="field"><label for="add-country">Country</label><input class="input" id="add-country" name="country" maxlength="80"></div>
+    </div>
+    <div class="field"><label for="add-org">Organisation <span class="opt">(optional)</span></label><input class="input" id="add-org" name="organization" maxlength="160"></div>
+    <div class="field"><label for="add-note">Notes from them <span class="opt">(optional)</span></label><textarea class="input" id="add-note" name="note" maxlength="1000"></textarea></div>
+    <div class="banner banner-error" id="add-error" role="alert" hidden><span class="ms" aria-hidden="true">lock</span><span id="add-error-text"></span></div>
+    <div class="sheet-foot">
+      <span></span>
+      <span>
+        <button class="btn btn-outline btn-sm" type="button" data-close>Cancel</button>
+        <button class="btn btn-primary btn-sm" id="add-submit" type="submit">Add to waitlist</button>
+      </span>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="boundary" role="note">
+      <span class="ms" aria-hidden="true">shield_person</span>
+      <span>Medicus supports clinician-supervised follow-up. It is not an emergency service and does not diagnose or prescribe. In an emergency, go to the nearest health facility.</span>
+    </div>
+    <div class="foot-row">
+      <a class="brand" href="#top"><img class="brand-mark" src="logo.png" alt="" width="34" height="34">Medicus</a>
+      <span class="body-s">Continuous care that follows the patient home. © 2026 Medicus</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  // Motion helpers: no-ops when GSAP is missing or the viewer prefers reduced motion.
+  var hasGsap = !!window.gsap;
+  function motionOk() {
+    return hasGsap && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+  function relayout() { if (hasGsap && window.ScrollTrigger) ScrollTrigger.refresh(); }
+  function popIn(el) {
+    if (!motionOk()) return;
+    gsap.fromTo(el.children, { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, ease: "power3.out", clearProps: "transform,opacity,visibility" });
+  }
+
+  // Film
+  var video = document.getElementById("film-video");
+  var play = document.getElementById("film-play");
+  play.addEventListener("click", function () {
+    video.controls = true;
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { /* controls stay visible */ });
+    if (motionOk()) {
+      gsap.to(play, { autoAlpha: 0, duration: 0.35, ease: "power2.out", onComplete: function () { play.hidden = true; gsap.set(play, { clearProps: "opacity,visibility" }); } });
+    } else {
+      play.hidden = true;
+    }
+  });
+  video.addEventListener("ended", function () {
+    video.controls = false; play.hidden = false;
+    if (motionOk()) gsap.from(play, { autoAlpha: 0, duration: 0.4, ease: "power2.out", clearProps: "opacity,visibility" });
+  });
+
+  // Waitlist storage. Inside claude.ai, sign-ups go to the artifact's own database.
+  // Anywhere else (GitHub Pages), they go to your Google Sheet through the Apps Script
+  // web app in google-apps-script.gs. Paste its /exec URL here after deploying it.
+  var SHEETS_URL = "";
+  var LOCAL_KEY = "medicus-waitlist-entry";
+
+  // Waitlist
+  var form = document.getElementById("wl-form");
+  var submit = document.getElementById("wl-submit");
+  var errBox = document.getElementById("wl-error");
+  var errText = document.getElementById("wl-error-text");
+  var success = document.getElementById("wl-success");
+  var summary = document.getElementById("wl-summary");
+  var db = null, myDoc = null, dbReady = false, lastEntry = null;
+
+  var fields = ["name", "email", "role", "country", "organization", "note"];
+  var labels = { name: "Name", email: "Email", role: "Role", organization: "Organisation", country: "Country" };
+
+  function showError(msg) {
+    errText.textContent = msg; errBox.hidden = false;
+    if (motionOk()) gsap.fromTo(errBox, { x: -8 }, { x: 0, duration: 0.5, ease: "elastic.out(1, 0.3)", clearProps: "transform" });
+  }
+  function clearError() { errBox.hidden = true; }
+
+  function showSuccess(entry) {
+    lastEntry = entry;
+    summary.textContent = "";
+    ["name", "email", "role", "organization", "country"].forEach(function (k) {
+      if (!entry[k]) return;
+      var row = document.createElement("div");
+      var dt = document.createElement("dt"); dt.textContent = labels[k];
+      var dd = document.createElement("dd"); dd.textContent = entry[k];
+      row.appendChild(dt); row.appendChild(dd); summary.appendChild(row);
+    });
+    form.hidden = true; success.hidden = false;
+    popIn(success);
+    if (motionOk()) gsap.from(success.querySelector(".big"), { scale: 0.4, duration: 0.6, ease: "back.out(2.2)", clearProps: "transform" });
+    relayout();
+  }
+
+  document.getElementById("wl-edit").addEventListener("click", function () {
+    if (lastEntry) fields.forEach(function (k) { if (form.elements[k]) form.elements[k].value = lastEntry[k] || ""; });
+    form.elements.consent.checked = true;
+    submit.textContent = "Save Changes";
+    success.hidden = true; form.hidden = false;
+    popIn(form);
+    relayout();
+  });
+
+  function validate() {
+    var ok = true;
+    ["name", "email", "role"].forEach(function (k) {
+      var el = form.elements[k];
+      var v = (el.value || "").trim();
+      var bad = !v || (k === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      el.setAttribute("aria-invalid", bad ? "true" : "false");
+      if (bad) ok = false;
+    });
+    if (!ok) { showError("Please add your name, a valid email and your role."); return false; }
+    if (!form.elements.consent.checked) { showError("Please tick the box so we can contact you about the pilot."); return false; }
+    return true;
+  }
+
+  form.addEventListener("input", function (e) { if (e.target.getAttribute("aria-invalid") === "true") e.target.setAttribute("aria-invalid", "false"); });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearError();
+    if (!validate()) return;
+    if (!dbReady) {
+      showError("Still connecting. Try again in a moment.");
+      return;
+    }
+    if (!db || !myDoc) { submitToSheet(); return; }
+    var entry = {};
+    fields.forEach(function (k) { entry[k] = (form.elements[k].value || "").trim().slice(0, 1000); });
+    entry.updatedAt = new Date().toISOString();
+    entry.createdAt = (lastEntry && lastEntry.createdAt) || entry.updatedAt;
+    submit.disabled = true; submit.textContent = "Joining…";
+    myDoc.set(entry).then(function () {
+      submit.disabled = false; submit.textContent = "Join the Waitlist";
+      showSuccess(entry);
+    }).catch(function (err) {
+      submit.disabled = false; submit.textContent = "Join the Waitlist";
+      if (err && err.code === "invalid_argument") {
+        showError("Your access to this page doesn't allow sign-ups. Ask the person who shared it to add you as a Contributor.");
+      } else if (err && err.code === "resource_exhausted") {
+        showError("Too many attempts. Wait a minute and try again.");
+      } else {
+        showError("We couldn't save your place. Check your connection and try again.");
+      }
+    });
+  });
+
+  function submitToSheet() {
+    if (!SHEETS_URL) {
+      showError("Sign-ups aren't open on this copy of the page yet. Please try again soon.");
+      return;
+    }
+    var entry = {};
+    fields.forEach(function (k) { entry[k] = (form.elements[k].value || "").trim().slice(0, 1000); });
+    entry.updatedAt = new Date().toISOString();
+    entry.createdAt = (lastEntry && lastEntry.createdAt) || entry.updatedAt;
+    var body = new URLSearchParams(entry);
+    body.set("website", form.elements.website.value); // honeypot: bots fill it, people never see it
+    submit.disabled = true; submit.textContent = "Joining…";
+    // A form-encoded POST is a "simple" request, so the browser sends it without a CORS preflight.
+    fetch(SHEETS_URL, { method: "POST", body: body })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        submit.disabled = false; submit.textContent = "Join the Waitlist";
+        if (!res || !res.ok) throw new Error((res && res.error) || "failed");
+        try { localStorage.setItem(LOCAL_KEY, JSON.stringify(entry)); } catch (e) {}
+        showSuccess(entry);
+      })
+      .catch(function () {
+        submit.disabled = false; submit.textContent = "Join the Waitlist";
+        showError("We couldn't save your place. Check your connection and try again.");
+      });
+  }
+
+  // Waitlist manager (page owner only).
+  // Sign-ups live at waitlist/<id>; the owner's status and notes live at manage/<id>,
+  // which the db rules keep readable and writable by the page owner only.
+  var STATUSES = [
+    { id: "new", label: "New" },
+    { id: "contacted", label: "Contacted" },
+    { id: "invited", label: "Invited" },
+    { id: "onboarded", label: "Onboarded" },
+    { id: "declined", label: "Declined" }
+  ];
+  var STATUS_LABEL = {};
+  STATUSES.forEach(function (s) { STATUS_LABEL[s.id] = s.label; });
+  var ROLES = Array.prototype.slice.call(form.elements.role.options, 1).map(function (o) { return o.value; });
+
+  var $ = function (id) { return document.getElementById(id); };
+  var mainEl = $("top"), footerEl = document.querySelector("footer");
+  var manager = $("manager"), navManage = $("nav-manage");
+  var rowsEl = $("mgr-rows"), statsEl = $("mgr-stats"), footEl = $("mgr-foot");
+  var qEl = $("mgr-q"), roleEl = $("mgr-role"), sortEl = $("mgr-sort");
+  var bulkEl = $("mgr-bulk"), bulkCount = $("mgr-bulk-count"), bulkStatus = $("mgr-bulk-status"), allEl = $("mgr-all");
+  var exportBtn = $("mgr-export");
+  var det = $("det"), addDlg = $("add"), addForm = $("add-form"), toastEl = $("toast");
+
+  var mgr = { db: null, downloads: null, isOwner: false, loaded: false, error: "",
+    entries: [], meta: {}, filter: "", q: "", role: "", sort: "new", selected: {}, openId: null, animated: false };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function opt(value, label) { var o = el("option", null, label); o.value = value; return o; }
+  function statusOf(id) { var m = mgr.meta[id]; return (m && STATUS_LABEL[m.status]) ? m.status : "new"; }
+
+  // Fill selects from the single lists above.
+  ROLES.forEach(function (r) { roleEl.appendChild(opt(r, r)); });
+  $("add-role").appendChild(opt("", "Choose one"));
+  ROLES.forEach(function (r) { $("add-role").appendChild(opt(r, r)); });
+  STATUSES.forEach(function (s) { bulkStatus.appendChild(opt(s.id, s.label)); $("det-status").appendChild(opt(s.id, s.label)); });
+
+  var toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.hidden = false;
+    if (motionOk()) gsap.fromTo(toastEl, { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.3, ease: "power3.out" });
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.hidden = true; }, 3200);
+  }
+  function writeError(err) {
+    var code = err && err.code;
+    if (code === "invalid_argument") return "Only the page owner can change the waitlist.";
+    if (code === "resource_exhausted") return "Too many changes at once. Wait a moment and try again.";
+    if (code === "quota_exceeded") return "The waitlist storage is full. Remove some entries first.";
+    return "That change didn't save. Check your connection and try again.";
+  }
+
+  // One write at a time per document.
+  var chains = {};
+  function queueWrite(path, fn) {
+    var next = (chains[path] || Promise.resolve()).catch(function () {}).then(fn);
+    chains[path] = next;
+    return next;
+  }
+  function saveMeta(id, patch) {
+    var cur = mgr.meta[id] || {};
+    var body = {
+      status: patch.status != null ? patch.status : statusOf(id),
+      notes: patch.notes != null ? patch.notes : (cur.notes || ""),
+      updatedAt: new Date().toISOString()
+    };
+    mgr.meta[id] = body;
+    render();
+    return queueWrite("manage/" + id, function () { return mgr.db.doc("manage/" + id).set(body); });
+  }
+  function removeEntry(id) {
+    return queueWrite("waitlist/" + id, function () { return mgr.db.doc("waitlist/" + id).delete(); })
+      .then(function () { return queueWrite("manage/" + id, function () { return mgr.db.doc("manage/" + id).delete(); }); });
+  }
+
+  // Derived view
+  function visible() {
+    var q = mgr.q.trim().toLowerCase();
+    var list = mgr.entries.filter(function (e) {
+      if (mgr.filter && statusOf(e.id) !== mgr.filter) return false;
+      if (mgr.role && e.role !== mgr.role) return false;
+      if (q && [e.name, e.email, e.organization, e.country, e.note].join(" ").toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    list.sort(function (a, b) {
+      if (mgr.sort === "name") return String(a.name || "").localeCompare(String(b.name || ""));
+      var d = String(a.createdAt || "").localeCompare(String(b.createdAt || ""));
+      return mgr.sort === "old" ? d : -d;
+    });
+    return list;
+  }
+  function selectedIds() { return Object.keys(mgr.selected).filter(function (id) { return mgr.selected[id]; }); }
+
+  function renderStats() {
+    var counts = { all: mgr.entries.length };
+    STATUSES.forEach(function (s) { counts[s.id] = 0; });
+    mgr.entries.forEach(function (e) { counts[statusOf(e.id)]++; });
+    statsEl.textContent = "";
+    [{ id: "", key: "all", label: "All" }].concat(STATUSES.map(function (s) { return { id: s.id, key: s.id, label: s.label }; })).forEach(function (s) {
+      var b = el("button", "stat"); b.type = "button";
+      b.setAttribute("aria-pressed", mgr.filter === s.id ? "true" : "false");
+      b.appendChild(el("b", null, String(counts[s.key])));
+      var lab = el("span"); var dot = el("i"); dot.setAttribute("data-s", s.key);
+      lab.appendChild(dot); lab.appendChild(document.createTextNode(s.label)); b.appendChild(lab);
+      b.addEventListener("click", function () { mgr.filter = s.id; render(); });
+      statsEl.appendChild(b);
+    });
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    try { return new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return "—"; }
+  }
+
+  function renderRows(list) {
+    rowsEl.textContent = "";
+    if (!mgr.loaded || mgr.error || !list.length) {
+      var tr = el("tr"); var td = el("td", "empty");
+      td.colSpan = 6;
+      td.textContent = mgr.error || (!mgr.loaded ? "Loading the waitlist…"
+        : mgr.entries.length ? "Nobody matches these filters." : "No sign-ups yet. New entries appear here as soon as someone joins.");
+      tr.appendChild(td); rowsEl.appendChild(tr);
+      return;
+    }
+    list.forEach(function (e) {
+      var tr = el("tr"); if (mgr.selected[e.id]) tr.className = "is-selected";
+
+      var tdCheck = el("td"); var cb = el("input"); cb.type = "checkbox"; cb.checked = !!mgr.selected[e.id];
+      cb.setAttribute("aria-label", "Select " + (e.name || "this person"));
+      cb.addEventListener("change", function () { mgr.selected[e.id] = cb.checked; render(); });
+      tdCheck.appendChild(cb); tr.appendChild(tdCheck);
+
+      var tdName = el("td"); var nb = el("button", "name-btn", e.name || "Unnamed"); nb.type = "button";
+      nb.addEventListener("click", function () { openDetail(e.id); });
+      tdName.appendChild(nb); tdName.appendChild(el("span", "cell-sub", e.email || "")); tr.appendChild(tdName);
+
+      tr.appendChild(el("td", null, e.role || "—"));
+      var tdOrg = el("td"); tdOrg.appendChild(document.createTextNode(e.organization || "—"));
+      if (e.country) tdOrg.appendChild(el("span", "cell-sub", e.country));
+      tr.appendChild(tdOrg);
+      var tdDate = el("td", "num", fmtDate(e.createdAt));
+      if (e.source === "manual") tdDate.appendChild(el("span", "cell-sub", "Added by team"));
+      tr.appendChild(tdDate);
+
+      var tdStatus = el("td"); var sel = el("select", "input status-select");
+      sel.setAttribute("aria-label", "Status for " + (e.name || "this person"));
+      STATUSES.forEach(function (s) { sel.appendChild(opt(s.id, s.label)); });
+      sel.value = statusOf(e.id); sel.setAttribute("data-s", sel.value);
+      sel.addEventListener("change", function () {
+        var prev = statusOf(e.id);
+        saveMeta(e.id, { status: sel.value }).catch(function (err) {
+          mgr.meta[e.id] = Object.assign({}, mgr.meta[e.id], { status: prev }); render(); toast(writeError(err));
+        });
+      });
+      tdStatus.appendChild(sel); tr.appendChild(tdStatus);
+      rowsEl.appendChild(tr);
+    });
+    if (!mgr.animated && !manager.hidden && motionOk()) {
+      mgr.animated = true;
+      gsap.from(rowsEl.children, { y: 10, autoAlpha: 0, duration: 0.4, stagger: 0.03, ease: "power3.out", clearProps: "transform,opacity,visibility" });
+    }
+  }
+
+  function render() {
+    var list = visible();
+    // Drop selections for people who no longer exist.
+    var ids = {}; mgr.entries.forEach(function (e) { ids[e.id] = true; });
+    Object.keys(mgr.selected).forEach(function (id) { if (!ids[id]) delete mgr.selected[id]; });
+
+    renderStats();
+    renderRows(list);
+
+    var sel = selectedIds();
+    bulkEl.hidden = sel.length === 0;
+    bulkCount.textContent = sel.length + (sel.length === 1 ? " person selected" : " people selected");
+    var shownSelected = list.filter(function (e) { return mgr.selected[e.id]; }).length;
+    allEl.checked = list.length > 0 && shownSelected === list.length;
+    allEl.indeterminate = shownSelected > 0 && shownSelected < list.length;
+
+    footEl.textContent = mgr.loaded && mgr.entries.length
+      ? "Showing " + list.length + " of " + mgr.entries.length + (mgr.entries.length === 1 ? " person." : " people.") : "";
+    exportBtn.disabled = list.length === 0;
+
+    if (mgr.openId && !mgr.entries.some(function (e) { return e.id === mgr.openId; }) && det.open) det.close();
+  }
+
+  // Toolbar
+  qEl.addEventListener("input", function () { mgr.q = qEl.value; render(); });
+  roleEl.addEventListener("change", function () { mgr.role = roleEl.value; render(); });
+  sortEl.addEventListener("change", function () { mgr.sort = sortEl.value; render(); });
+  allEl.addEventListener("change", function () {
+    visible().forEach(function (e) { mgr.selected[e.id] = allEl.checked; });
+    render();
+  });
+  $("mgr-bulk-clear").addEventListener("click", function () { mgr.selected = {}; render(); });
+  bulkStatus.addEventListener("change", function () {
+    var status = bulkStatus.value; if (!status) return;
+    var ids = selectedIds(); bulkStatus.value = "";
+    var failed = 0;
+    ids.reduce(function (p, id) {
+      return p.then(function () { return saveMeta(id, { status: status }).catch(function () { failed++; }); });
+    }, Promise.resolve()).then(function () {
+      if (failed) toast(failed + " of " + ids.length + " didn't save. Try again.");
+      else { toast(ids.length + (ids.length === 1 ? " person" : " people") + " marked " + STATUS_LABEL[status] + "."); mgr.selected = {}; render(); }
+    });
+  });
+
+  // Dialogs
+  function openDialog(d) {
+    d.showModal();
+    if (motionOk()) gsap.fromTo(d, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.35, ease: "power3.out", clearProps: "transform,opacity,visibility" });
+  }
+  [det, addDlg].forEach(function (d) {
+    d.addEventListener("click", function (ev) {
+      if (ev.target === d || ev.target.closest("[data-close]")) d.close();
+    });
+  });
+
+  var delBtn = $("det-delete"), delArmed = false, delTimer = null;
+  function disarm() { delArmed = false; delBtn.classList.remove("armed"); delBtn.lastChild.textContent = "Remove"; clearTimeout(delTimer); }
+
+  function openDetail(id) {
+    var e = mgr.entries.filter(function (x) { return x.id === id; })[0]; if (!e) return;
+    mgr.openId = id; disarm();
+    $("det-name").textContent = e.name || "Unnamed";
+    var mail = $("det-email"); mail.textContent = e.email || "";
+    if (e.email) mail.href = "mailto:" + e.email; else mail.removeAttribute("href");
+    var dl = $("det-fields"); dl.textContent = "";
+    [["Role", e.role], ["Organisation", e.organization], ["Country", e.country], ["Joined", fmtDate(e.createdAt)],
+     ["Last updated", e.updatedAt && e.updatedAt !== e.createdAt ? fmtDate(e.updatedAt) : ""],
+     ["Source", e.source === "manual" ? "Added by team" : "Signed up on this page"]].forEach(function (f) {
+      if (!f[1]) return;
+      var row = el("div"); row.appendChild(el("dt", null, f[0])); row.appendChild(el("dd", null, f[1])); dl.appendChild(row);
+    });
+    $("det-msg-wrap").hidden = !e.note;
+    $("det-msg").textContent = e.note || "";
+    $("det-status").value = statusOf(id);
+    $("det-notes").value = (mgr.meta[id] && mgr.meta[id].notes) || "";
+    openDialog(det);
+  }
+
+  $("det-save").addEventListener("click", function () {
+    var id = mgr.openId; if (!id) return;
+    var btn = this; btn.disabled = true;
+    saveMeta(id, { status: $("det-status").value, notes: $("det-notes").value.slice(0, 4000) }).then(function () {
+      btn.disabled = false; det.close(); toast("Saved.");
+    }).catch(function (err) { btn.disabled = false; toast(writeError(err)); });
+  });
+  delBtn.addEventListener("click", function () {
+    var id = mgr.openId; if (!id) return;
+    if (!delArmed) {
+      delArmed = true; delBtn.classList.add("armed"); delBtn.lastChild.textContent = "Click again to remove";
+      delTimer = setTimeout(disarm, 4000);
+      return;
+    }
+    disarm(); delBtn.disabled = true;
+    removeEntry(id).then(function () {
+      delBtn.disabled = false; delete mgr.selected[id]; det.close(); toast("Removed from the waitlist.");
+    }).catch(function (err) { delBtn.disabled = false; toast(writeError(err)); });
+  });
+  $("det-copy").addEventListener("click", function () {
+    var email = $("det-email").textContent;
+    var done = function () { toast("Email copied."); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done, function () { selectEmail(); });
+    } else selectEmail();
+  });
+  function selectEmail() {
+    var r = document.createRange(); r.selectNodeContents($("det-email"));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    toast("Email selected. Press Ctrl+C or ⌘C to copy.");
+  }
+
+  $("mgr-add").addEventListener("click", function () {
+    addForm.reset(); $("add-error").hidden = true;
+    Array.prototype.forEach.call(addForm.elements, function (x) { x.removeAttribute && x.removeAttribute("aria-invalid"); });
+    openDialog(addDlg);
+    $("add-name").focus();
+  });
+  addForm.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var ok = true;
+    ["name", "email", "role"].forEach(function (k) {
+      var x = addForm.elements[k], v = (x.value || "").trim();
+      var bad = !v || (k === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      x.setAttribute("aria-invalid", bad ? "true" : "false"); if (bad) ok = false;
+    });
+    if (!ok) { $("add-error-text").textContent = "Add a name, a valid email and a role."; $("add-error").hidden = false; return; }
+    var now = new Date().toISOString();
+    var entry = { source: "manual", createdAt: now, updatedAt: now };
+    fields.forEach(function (k) { entry[k] = (addForm.elements[k].value || "").trim().slice(0, 1000); });
+    var dup = mgr.entries.filter(function (e) { return String(e.email || "").toLowerCase() === entry.email.toLowerCase(); })[0];
+    if (dup) { $("add-error-text").textContent = entry.email + " is already on the waitlist as " + (dup.name || "someone") + "."; $("add-error").hidden = false; return; }
+    var btn = $("add-submit"); btn.disabled = true;
+    mgr.db.collection("waitlist").doc().set(entry).then(function () {
+      btn.disabled = false; addDlg.close(); toast(entry.name + " added.");
+    }).catch(function (err) {
+      btn.disabled = false; $("add-error-text").textContent = writeError(err); $("add-error").hidden = false;
+    });
+  });
+
+  // CSV export of the rows currently shown
+  function csvCell(v) {
+    v = v == null ? "" : String(v);
+    if (/^[=+\-@\t\r]/.test(v)) v = "'" + v; // keep spreadsheets from running it as a formula
+    return '"' + v.replace(/"/g, '""') + '"';
+  }
+  exportBtn.addEventListener("click", function () {
+    var list = visible(); if (!list.length || !mgr.downloads) return;
+    var head = ["Name", "Email", "Role", "Organisation", "Country", "Message", "Status", "Team notes", "Joined", "Source"];
+    var lines = [head.map(csvCell).join(",")].concat(list.map(function (e) {
+      var m = mgr.meta[e.id] || {};
+      return [e.name, e.email, e.role, e.organization, e.country, e.note, STATUS_LABEL[statusOf(e.id)], m.notes || "",
+        e.createdAt ? e.createdAt.slice(0, 10) : "", e.source === "manual" ? "Added by team" : "Sign-up form"].map(csvCell).join(",");
+    }));
+    mgr.downloads.save({ filename: "medicus-waitlist-" + new Date().toISOString().slice(0, 10) + ".csv", data: "﻿" + lines.join("\r\n") })
+      .catch(function (err) {
+        if (err && err.code === "declined") return;
+        toast(err && err.code === "rate_limited" ? "A download is already waiting for you. Try again in a moment." : "The export couldn't be saved here.");
+      });
+  });
+
+  // Switching between the site and the manager. Clicks drive it directly; the
+  // #manage hash only works as a way in, since some hosts block hash navigation.
+  var wantManager = location.hash === "#manage";
+  function setView(manage) { wantManager = manage; route(); }
+  navManage.addEventListener("click", function (ev) { ev.preventDefault(); setView(true); });
+  manager.querySelector(".back-link").addEventListener("click", function (ev) {
+    ev.preventDefault(); setView(false); window.scrollTo(0, 0);
+  });
+  document.querySelectorAll('.site-header a[href^="#"]:not(#nav-manage)').forEach(function (a) {
+    a.addEventListener("click", function () { if (wantManager) setView(false); });
+  });
+  function route() {
+    var show = mgr.isOwner && wantManager;
+    var was = !manager.hidden;
+    manager.hidden = !show; mainEl.hidden = show; footerEl.hidden = show;
+    if (show && !was) {
+      window.scrollTo(0, 0);
+      if (motionOk()) gsap.from(".mgr-head, .stats, .toolbar", { y: 16, autoAlpha: 0, duration: 0.5, stagger: 0.06, ease: "power3.out", clearProps: "transform,opacity,visibility" });
+      render();
+    }
+    if (show !== was) relayout();
+  }
+  window.addEventListener("hashchange", function () { setView(location.hash === "#manage"); });
+
+  function startManager(db, downloads) {
+    mgr.db = db; mgr.downloads = downloads; mgr.isOwner = true;
+    navManage.hidden = false; exportBtn.hidden = !downloads;
+    db.collection("waitlist").onSnapshot(function (snap) {
+      mgr.entries = snap.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
+      mgr.loaded = true; mgr.error = ""; render();
+    }, function () { mgr.error = "The waitlist couldn't be loaded. Reload the page to try again."; render(); });
+    db.collection("manage").onSnapshot(function (snap) {
+      var meta = {};
+      snap.docs.forEach(function (d) { meta[d.id] = d.data(); });
+      mgr.meta = meta; render();
+    }, function () {});
+    route();
+  }
+
+  function boot() {
+    if (!window.claude || !window.claude.use) {
+      dbReady = true;
+      try { var saved = JSON.parse(localStorage.getItem(LOCAL_KEY) || "null"); if (saved && saved.email) showSuccess(saved); } catch (e) {}
+      return;
+    }
+    Promise.all([window.claude.use("db"), window.claude.use("user")]).then(function (r) {
+      db = r[0]; var user = r[1];
+      if (!db || !user) { dbReady = true; return; }
+      return user.id().then(function (id) {
+        if (id) {
+          myDoc = db.doc("waitlist/" + id);
+          myDoc.get().then(function (s) { if (s.exists) showSuccess(s.data()); }).catch(function () {});
+        }
+        dbReady = true;
+        return user.isOwner();
+      }).then(function (isOwner) {
+        if (!isOwner) return;
+        return window.claude.use("downloads").then(function (downloads) { startManager(db, downloads); });
+      });
+    }).catch(function () { dbReady = true; });
+  }
+  boot();
+
+  // Page motion
+  var root = document.documentElement;
+  if (!hasGsap) { root.classList.remove("anim-pending"); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  var mm = gsap.matchMedia();
+  mm.add("(prefers-reduced-motion: no-preference)", function () {
+    var ease = "power3.out";
+
+    // Hero: copy, phone, then the Day 0–30 ruler drawing itself.
+    // Starting states are set in the same tick the pending class is removed, so nothing flashes.
+    root.classList.remove("anim-pending");
+    var hero = gsap.timeline({ defaults: { ease: ease, duration: 0.8 } });
+    hero
+      .from(".hero-copy > *", { y: 24, autoAlpha: 0, stagger: 0.08 })
+      .from(".phone", { y: 40, autoAlpha: 0, duration: 1 }, 0.15)
+      .from(".phone .task", { y: 12, autoAlpha: 0, stagger: 0.07, duration: 0.5 }, 0.5)
+      .from(".progress i", { width: 0, duration: 1, ease: "power2.inOut" }, 0.6)
+      .from(".phone .task .badge", { scale: 0.6, autoAlpha: 0, stagger: 0.07, duration: 0.4, ease: "back.out(2)" }, 0.8)
+      .from(".ruler-line", { scaleX: 0, transformOrigin: "left center", duration: 1.1, ease: "power2.inOut" }, 0.4)
+      .from(".tick", { y: 8, autoAlpha: 0, stagger: 0.08, duration: 0.5 }, 0.6)
+      .from(".ruler-done", { width: 0, duration: 0.8, ease: "power2.out" }, 1.1)
+      .from(".ruler-caption", { autoAlpha: 0, duration: 0.6 }, 1.3)
+      .fromTo(".tick.now i",
+        { boxShadow: "0 0 0 0 rgba(29,95,232,0.35)" },
+        { boxShadow: "0 0 0 10px rgba(29,95,232,0)", duration: 1.6, repeat: -1, repeatDelay: 0.6, ease: "power1.out" }, 1.4);
+
+    // Ruler: a comet travels the road ahead from today (Day 3) to Day 30, and each
+    // milestone it passes lights up briefly. Ticks also respond on hover.
+    var ticks = gsap.utils.toArray(".tick");
+    var ahead = ticks.slice(2); // Day 7 onward
+    var trip = gsap.timeline({ repeat: -1, repeatDelay: 1.8, delay: 2.6 });
+    trip.set(".ruler-comet", { left: "20%", opacity: 0 })
+      .to(".ruler-comet", { opacity: 1, duration: 0.3 }, 0)
+      .to(".ruler-comet", { left: "100%", duration: 3.2, ease: "power1.inOut" }, 0)
+      .to(".ruler-comet", { opacity: 0, duration: 0.4 }, 2.9);
+    ahead.forEach(function (t, k) {
+      // ticks sit at 40/60/80/100%: the comet reaches them at 1/4, 2/4, 3/4 and the end of its run
+      var at = 3.2 * (k + 1) / ahead.length - 0.15;
+      trip.to(t.querySelector("i"), { scale: 1.6, borderColor: "#1d5fe8", duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, at)
+          .to(t.querySelector("span"), { y: -3, color: "#1d5fe8", duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, at);
+    });
+    ticks.forEach(function (t) {
+      var dot = t.querySelector("i"), label = t.querySelector("span");
+      t.addEventListener("mouseenter", function () {
+        gsap.to(dot, { scale: 1.5, duration: 0.25, ease: "back.out(3)", overwrite: "auto" });
+        gsap.to(label, { y: -3, duration: 0.25, ease: "power2.out", overwrite: "auto" });
+      });
+      t.addEventListener("mouseleave", function () {
+        gsap.to(dot, { scale: 1, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+        gsap.to(label, { y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+      });
+    });
+
+    // Section headings
+    gsap.utils.toArray(".section-head, .wl-copy").forEach(function (head) {
+      gsap.from(head.children, { y: 20, autoAlpha: 0, stagger: 0.08, duration: 0.7, ease: ease,
+        scrollTrigger: { trigger: head, start: "top 85%", once: true } });
+    });
+
+    // Cards and rows rise in, staggered by whatever enters together.
+    function batchReveal(selector, from) {
+      var els = gsap.utils.toArray(selector);
+      if (!els.length) return;
+      gsap.set(els, from);
+      ScrollTrigger.batch(els, {
+        start: "top 90%", once: true,
+        onEnter: function (batch) {
+          gsap.to(batch, { x: 0, y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1, ease: ease, overwrite: true });
+        }
+      });
+    }
+    batchReveal(".problem, .channel, .aud, .target, .principle", { y: 28, autoAlpha: 0 });
+    batchReveal(".step", { x: -16, autoAlpha: 0 });
+
+    // Film
+    gsap.from(".film-frame", { y: 32, scale: 0.97, autoAlpha: 0, duration: 1, ease: ease,
+      scrollTrigger: { trigger: ".film-frame", start: "top 88%", once: true } });
+    gsap.from(".film-play .disc", { scale: 0.5, autoAlpha: 0, duration: 0.6, delay: 0.4, ease: "back.out(2)",
+      scrollTrigger: { trigger: ".film-frame", start: "top 88%", once: true } });
+
+    gsap.from(".problem-quote", { y: 20, autoAlpha: 0, duration: 0.8, ease: ease,
+      scrollTrigger: { trigger: ".problem-quote", start: "top 88%", once: true } });
+
+    // Channel previews: the pain scale fills in, then today's answer is picked.
+    var scale = document.querySelector(".scale");
+    if (scale) {
+      gsap.timeline({ scrollTrigger: { trigger: scale, start: "top 88%", once: true }, delay: 0.3 })
+        .from(".scale span", { scale: 0.6, autoAlpha: 0, stagger: 0.03, duration: 0.3, ease: "back.out(2)" })
+        .from(".scale span.sel, .yn span.sel", { scale: 1.25, duration: 0.45, stagger: 0.15, ease: "back.out(3)" }, "+=0.1");
+    }
+
+    // Work queue: rows sort in, then the urgent badge draws the eye.
+    gsap.timeline({ scrollTrigger: { trigger: ".queue", start: "top 85%", once: true } })
+      .from(".queue", { y: 28, autoAlpha: 0, duration: 0.7, ease: ease })
+      .from(".qrow", { y: 12, autoAlpha: 0, stagger: 0.09, duration: 0.5, ease: ease }, 0.25)
+      .fromTo(".qrow .b-error", { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 3, ease: "power1.inOut" });
+
+    // Targets: count up and fill the bars together.
+    gsap.utils.toArray(".target").forEach(function (card) {
+      var num = card.querySelector(".target-num");
+      var bar = card.querySelector(".target-bar i");
+      var end = parseFloat(num.textContent) || 0;
+      var counter = { v: 0 };
+      gsap.timeline({ scrollTrigger: { trigger: card, start: "top 90%", once: true }, delay: 0.2 })
+        .to(counter, { v: end, duration: 1.4, ease: "power2.out", onUpdate: function () { num.textContent = Math.round(counter.v) + "%"; } })
+        .from(bar, { width: 0, duration: 1.4, ease: "power2.out" }, 0);
+    });
+
+    // Waitlist
+    gsap.from(".wl-list li", { x: -12, autoAlpha: 0, stagger: 0.1, duration: 0.5, ease: ease,
+      scrollTrigger: { trigger: ".wl-list", start: "top 90%", once: true } });
+    gsap.from(".form-card", { y: 32, autoAlpha: 0, duration: 0.9, ease: ease,
+      scrollTrigger: { trigger: ".form-card", start: "top 88%", once: true } });
+
+    gsap.from(".boundary", { y: 16, autoAlpha: 0, duration: 0.7, ease: ease,
+      scrollTrigger: { trigger: ".boundary", start: "top 95%", once: true } });
+  });
+
+  // Fonts change line heights; re-measure trigger positions once they land.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  window.addEventListener("load", relayout);
+})();
+</script>
+
+</body></html>
